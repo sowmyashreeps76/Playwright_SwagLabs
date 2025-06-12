@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
+import logindata from '../testData/login.json'
 
 test("Verify login with valid credentials", async ({page})=>{
 
 await page.goto("https://www.saucedemo.com/v1/")
 
-await page.locator("input[name='user-name']").fill("standard_user")
+await page.locator("input[name='user-name']").fill(logindata.username)
 
-await page.locator("input[type='password']").fill("secret_sauce")
+await page.locator("input[type='password']").fill(logindata.password)
 
 await page.locator("input[type='submit']").click()
 
